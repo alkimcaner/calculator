@@ -1,5 +1,6 @@
 const numberButtons = document.querySelectorAll('[data-number]');
 const operatorButtons = document.querySelectorAll('[data-operator]');
+const seperatorButton = document.querySelector('[data-seperator]');
 const clearButton = document.querySelector('[data-clear]');
 const resultButton = document.querySelector('[data-result]');
 const removeButton = document.querySelector('[data-remove]');
@@ -21,6 +22,11 @@ class Calc{
         this.display();
     }
 
+    seperate() {
+        this.calculation += this.calculation.includes(".") ? '' : '.';
+        this.display();
+    }
+
     calculate() {
         this.calculation = eval(this.calculation).toString();
         this.display();
@@ -38,8 +44,6 @@ class Calc{
 
     display() {
         this.output.textContent = this.calculation;
-        console.log(/[0-9]/.test(this.calculation.slice(-1)));
-
     }
 }
 
@@ -55,6 +59,10 @@ operatorButtons.forEach( e => {
     e.addEventListener('click', () => {
         calculator.appendOperator(e.textContent);
     });
+});
+
+seperatorButton.addEventListener('click', () => {
+    calculator.seperate();
 });
 
 resultButton.addEventListener('click', () => {

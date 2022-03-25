@@ -59,6 +59,10 @@ body {
     background-color: rgba(180, 191, 197, 0.5);
 }
 
-[data-result] {
-    grid-column: 2/4;
+[data-result]{
+    background-color: rgba(255, 166, 0, 0.6) !important;
+}
+
+[data-result]:hover{
+    background-color: rgba(255, 166, 0, 0.9) !important;
 }
